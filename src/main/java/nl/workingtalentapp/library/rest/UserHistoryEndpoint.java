@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import nl.workingtalentapp.library.domein.UserHistory;
 import nl.workingtalentapp.library.persistance.UserHistoryService;
 
 @RestController
@@ -19,4 +20,10 @@ public class UserHistoryEndpoint {
 		
 		return "Hij doet het";
 	}
+	
+	@GetMapping("/userhistory")
+	public Iterable<UserHistory> userhistory() {
+		return uhs.userhistory();
+	}
+	
 }
