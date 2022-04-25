@@ -1,5 +1,11 @@
 package nl.workingtalentapp.library.persistance;
 
-public interface UserHistoryRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Component;
+
+import nl.workingtalentapp.library.domein.UserHistory;
+
+@Component
+public interface UserHistoryRepository extends CrudRepository<UserHistory, Long> {
 
 }

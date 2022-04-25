@@ -1,5 +1,7 @@
 package nl.workingtalentapp.library.domein;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,4 +14,5 @@ public class UserHistory {
 	long id;
 	
 	int status;
+	
 }
