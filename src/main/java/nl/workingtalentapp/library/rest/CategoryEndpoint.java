@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import nl.workingtalentapp.library.domein.Category;
 import nl.workingtalentapp.library.persistance.CategoryService;
 
 @RestController
@@ -19,5 +20,10 @@ public class CategoryEndpoint {
 		
 		return "Hij doet het!";
 		}
+	
+	@GetMapping("/categories")
+	public Iterable<Category> category() {
+		return cs.category();
+	}
 }
 

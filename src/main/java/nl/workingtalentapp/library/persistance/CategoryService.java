@@ -16,4 +16,8 @@ public class CategoryService {
 		cr.save(cat);
 	}	
 	
+	public Iterable<Category> category() {
+		return cr.findAll();
+	}
+	
 }
