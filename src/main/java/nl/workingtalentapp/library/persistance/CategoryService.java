@@ -16,4 +16,13 @@ public class CategoryService {
 		cr.save(cat);
 	}	
 	
+	public Iterable<Category> category() {
+		return cr.findAll();
+	}
+
+	public void slamaaropditding(Category cat) {
+		// TODO Auto-generated method stub
+		cr.save(cat);
+	}
+	
 }
