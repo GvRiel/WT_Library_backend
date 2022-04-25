@@ -40,5 +40,4 @@ public class Category {
 		this.main_category = main_category;
 	}
 	
-	
 }
