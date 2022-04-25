@@ -16,5 +16,10 @@ public class BoekService {
 		tr.setTitle("De Naam");
 		trs.save(tr);
 	}
+
+	public Iterable<Boek> boeken() {
+		// TODO Auto-generated method stu
+		return trs.findAll();
+	}
 	
 }
