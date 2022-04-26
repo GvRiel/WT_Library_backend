@@ -3,7 +3,8 @@ package nl.workingtalentapp.library.persistance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import nl.workingtalentapp.library.domein.StatusHistorie;
+import nl.workingtalentapp.library.domein.StatusHistory;
+import nl.workingtalentapp.library.domein.UserHistory;
 
 @Service
 public class StatusHistoryService {
@@ -12,9 +13,14 @@ public class StatusHistoryService {
 	
 	public void proberen() {
 		
-		StatusHistorie sh = new StatusHistorie();
+		StatusHistory sh = new StatusHistory();
 		sh.setStatus_after("available");
 		shr.save(sh);
-		
 	}
+	
+	public Iterable<StatusHistory> statushistory() {		
+		return shr.findAll();
+	}
+	
 }
+

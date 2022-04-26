@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 import nl.workingtalentapp.library.domein.*;
 
 @Component
-public interface StatusHistoryRepository extends CrudRepository<StatusHistorie, Long>{
+public interface StatusHistoryRepository extends CrudRepository<StatusHistory, Long>{
 
 }

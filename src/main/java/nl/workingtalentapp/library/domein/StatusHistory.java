@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class StatusHistorie {
+public class StatusHistory {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 
