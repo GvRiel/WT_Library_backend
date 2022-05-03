@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import nl.workingtalentapp.library.domein.StatusHistory;
-import nl.workingtalentapp.library.domein.UserHistory;
 import nl.workingtalentapp.library.persistance.StatusHistoryService;
 
 @RestController
@@ -39,5 +38,4 @@ public class StatusHistoryEndpoint {
 		System.out.println( "van de body: "+sh.getStatus_after() );
 		System.out.println( "van de path: "+ status_after );
 	}
-	
 }
