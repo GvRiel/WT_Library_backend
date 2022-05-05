@@ -1,25 +1,25 @@
 package nl.workingtalentapp.library.persistance;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import nl.workingtalentapp.library.domein.StatusHistory;
+import nl.workingtalentapp.library.domein.User;
 
 @Service
-public class StatusHistoryService {
+public class UserService {
+	
 	@Autowired
-	StatusHistoryRepository shr;
+	UserRepository shr;
 	
 	public void proberen() {
-		
-		StatusHistory sh = new StatusHistory();
-		sh.setStatus_after("available");
+		User sh = new User();
+		sh.setName("ezra");
 		shr.save(sh);
 	}
 	
-	public Iterable<StatusHistory> statushistory() {		
+	public Iterable<User> findAllUsers() {
 		return shr.findAll();
 	}
-	
 }
-
