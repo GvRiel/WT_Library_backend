@@ -22,6 +22,8 @@ bin/**
 *.iml
 *.ipr
 *.properties
+*.DS_Store
+.DS_Store	
 
 ### NetBeans ###
 /nbproject/private/
