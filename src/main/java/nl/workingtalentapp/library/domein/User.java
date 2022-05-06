@@ -1,26 +1,55 @@
 package nl.workingtalentapp.library.domein;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 @Entity
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	long id;
+	@Column(nullable = false, updatable = false)
+	private long id;
+	private String user_id;
+	private boolean admin;
+	private String username;
+	private String password;
+	private String name;
+	private String email;
+	private String photo;
 	
-	int user_id;
+	public User() {}
 	
-	boolean admin;
-	
-	String username;
-	
-	String password;
-		
-	String name;
+	public User(Long id, String user_id, boolean admin, String username, String password, String name, String email, String photo ) {
+		this.id = id;
+		this.user_id = user_id;
+		this.admin = admin;
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+		this.photo = photo;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public long getId() {
 		return id;
@@ -30,11 +59,11 @@ public class User {
 		this.id = id;
 	}
 
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 
@@ -70,6 +99,27 @@ public class User {
 		this.name = name;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
 	
 
 }
