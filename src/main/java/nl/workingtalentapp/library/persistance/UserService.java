@@ -1,25 +1,77 @@
 package nl.workingtalentapp.library.persistance;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import nl.workingtalentapp.library.domein.Boek;
 import nl.workingtalentapp.library.domein.User;
 
 @Service
 public class UserService {
 	
-	@Autowired
-	UserRepository shr;
+	 private final UserRepository userRepository;
+	 
+	private static List<User> users = new ArrayList<>();
+	private static long idCounter = 0;
 	
-	public void proberen() {
-		User sh = new User();
-		sh.setName("ezra");
-		shr.save(sh);
+	
+	 @Autowired
+	    public UserService(UserRepository userRepository) {
+	        this.userRepository = userRepository;
+	    }
+	
+	 public List<User> findStaticUsers(){
+		 return users;
+	 }
+	 
+	public List<User> findAllUsers() {
+		return (List<User>) userRepository.findAll();
 	}
 	
-	public Iterable<User> findAllUsers() {
-		return shr.findAll();
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
+	
+    public User addUser(User user) {
+      user.setUser_id(UUID.randomUUID().toString());
+        return userRepository.save(user);
+    }
+	
+	public User deleteById(long id) {
+		User user = findById(id);
+		
+		if(user==null) return null;
+		
+		if(users.remove(user)) {
+			return user;
+		}
+		
+		return null;
 	}
+
+	public User findById(long id) {
+		for(User user:users) {
+			if(user.getId() == id) {
+				return user;
+			}
+		}
+		
+		return null;
+	}
+	
+	public User findByUsername(String username) {
+		for(User user:users) {
+			if(user.getUsername() == username) {
+				return user;
+			}
+		}
+		
+		return null;
+	}
+	
+	
 }
