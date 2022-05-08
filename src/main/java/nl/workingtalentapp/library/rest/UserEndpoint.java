@@ -51,15 +51,21 @@ public class UserEndpoint {
 
 
 	//DELETE 
-	@DeleteMapping("/delete/{user_id}")
-	public ResponseEntity<Void> deleteUser(
-			 @PathVariable int user_id){
-		
-		//User user = userService.deleteById(id);
-		userService.deleteById(user_id);
-		
-		return ResponseEntity.noContent().build();
-		//return ResponseEntity.notFound().build();
+//	@DeleteMapping("/delete/{user_id}")
+//	public ResponseEntity<Void> deleteUser(
+//			 @PathVariable int user_id){
+//		
+//		//User user = userService.deleteById(id);
+//		userService.deleteById(user_id);
+//		
+//		return ResponseEntity.noContent().build();
+//		//return ResponseEntity.notFound().build();
+//	}
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> UpdateUser(@PathVariable("id") Long id){
+		userService.deleteUser(id);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 

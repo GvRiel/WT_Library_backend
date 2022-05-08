@@ -41,16 +41,20 @@ public class UserService {
         return userRepository.save(user);
     }
 	
-	public User deleteById(long id) {
-		User user = findById(id);
-		
-		if(user==null) return null;
-		
-		if(users.remove(user)) {
-			return user;
-		}
-		
-		return null;
+//	public User deleteById(long id) {
+//		User user = findById(id);
+//		
+//		if(user==null) return null;
+//		
+//		if(users.remove(user)) {
+//			return user;
+//		}
+//		
+//		return null;
+//	}
+//	
+	public void deleteUser(Long id) {
+		userRepository.deleteById(id);
 	}
 
 	public User findById(long id) {
