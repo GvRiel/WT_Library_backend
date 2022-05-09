@@ -21,10 +21,14 @@ public class User {
 	private String name;
 	private String email;
 	private String photo;
+	private String function;
+	private String phoneNumber;
+	private String linkedinURL;
+
 	
 	public User() {}
 	
-	public User(Long id, String user_id, boolean admin, String username, String password, String name, String email, String photo ) {
+	public User(Long id, String user_id, boolean admin, String username, String password, String name, String email, String photo, String function, String phoneNumber, String linkedinURL ) {
 		this.id = id;
 		this.user_id = user_id;
 		this.admin = admin;
@@ -33,6 +37,35 @@ public class User {
 		this.name = name;
 		this.email = email;
 		this.photo = photo;
+		this.function = function;
+		this.phoneNumber = phoneNumber;
+		this.linkedinURL = linkedinURL;
+	}
+	
+	
+
+	public String getFunction() {
+		return function;
+	}
+
+	public void setFunction(String function) {
+		this.function = function;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getLinkedinURL() {
+		return linkedinURL;
+	}
+
+	public void setLinkedinURL(String linkedinURL) {
+		this.linkedinURL = linkedinURL;
 	}
 
 	public String getPhoto() {
