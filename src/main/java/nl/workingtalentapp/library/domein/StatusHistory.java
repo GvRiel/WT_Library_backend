@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class StatusHistory implements Serializable{
@@ -14,10 +15,19 @@ public class StatusHistory implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	
+	// Foreign key naar exemplaar database
 	private long copy_id;
 	
+	// Foreign key naar user database
 	private long user_id;
+	
+	@ManyToOne
+	private Boek book;
+//	private Copy copy;
+	
+	
+	@ManyToOne
+	private User user;
 	
 	private boolean admin_modif;
 	private LocalDateTime timestamp;

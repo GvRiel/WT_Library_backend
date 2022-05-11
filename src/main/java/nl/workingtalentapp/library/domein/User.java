@@ -1,10 +1,14 @@
 package nl.workingtalentapp.library.domein;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -24,7 +28,9 @@ public class User {
 	private String function;
 	private String phoneNumber;
 	private String linkedinURL;
-
+	
+	@OneToMany(mappedBy ="user")
+	private Set<StatusHistory> statusHistories= new HashSet<>();
 	
 	public User() {}
 	
@@ -41,7 +47,6 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.linkedinURL = linkedinURL;
 	}
-	
 	
 
 	public String getFunction() {
