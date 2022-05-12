@@ -19,13 +19,7 @@ public class StatusHistory implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	
-	// Foreign key naar exemplaar database
-//	private long exemplaar_id;
-	
-	// Foreign key naar user database
-//	private long user_id;
-	
+		
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="exemplaar_id", referencedColumnName = "id")
 	private Exemplaar exemplaar;

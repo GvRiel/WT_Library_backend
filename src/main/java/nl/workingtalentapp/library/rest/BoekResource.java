@@ -43,6 +43,7 @@ public class BoekResource {
         Boek updateBoek = boekService.updateBoek(boek);
         return new ResponseEntity<>(updateBoek, HttpStatus.OK);
     }
+    
     @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteBoek(@PathVariable("id") Long id) {

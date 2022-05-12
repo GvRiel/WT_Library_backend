@@ -41,17 +41,47 @@ public class StatusHistoryService {
 	}
 
 	public List<StatusHistory> findStatusHistoryUser(Long user_id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<StatusHistory> StatusHistories = shRepo.findAll();
+		List<StatusHistory> returnStatusHistories = new ArrayList<>();
+		for(StatusHistory sh:StatusHistories) {
+			if(sh.getUser().getId() == user_id && sh.isActive()) {
+				returnStatusHistories.add(sh);
+			}
+		}		
+		return returnStatusHistories;
 	}
 
-	public List<StatusHistory> findStatusHistoryCopy() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<StatusHistory> findStatusHistoryCopy(Long copy_id) {
+		List<StatusHistory> StatusHistories = shRepo.findAll();
+		List<StatusHistory> returnStatusHistories = new ArrayList<>();
+		for(StatusHistory sh:StatusHistories) {
+			if(sh.getExemplaar().getId() == copy_id && sh.isActive()) {
+				returnStatusHistories.add(sh);
+			}
+		}		
+		return returnStatusHistories;
 	}
 
+//	public List<StatusHistory> findStatusHistoryBookActive(Long book_id) {
+//		List<StatusHistory> StatusHistories = shRepo.findAll();
+//		List<StatusHistory> returnStatusHistories = new ArrayList<>();
+//		for(StatusHistory sh:StatusHistories) {
+//			if(sh.getExemplaar().getBoek().getId() == book_id && sh.isActive()) {
+//				returnStatusHistories.add(sh);
+//			}
+//		}		
+//		return returnStatusHistories;
+//	}
+	
 	public List<StatusHistory> findStatusHistoryBook(Long book_id) {
-		// TODO Auto-generated method stub
+//		List<StatusHistory> StatusHistories = shRepo.findAll();
+//		List<StatusHistory> returnStatusHistories = new ArrayList<>();
+//		for(StatusHistory sh:StatusHistories) {
+//			if(sh.getExemplaar().getBoek().getId() == book_id) {
+//				returnStatusHistories.add(sh);
+//			}
+//		}		
+//		return returnStatusHistories;
 		return null;
 	}
 

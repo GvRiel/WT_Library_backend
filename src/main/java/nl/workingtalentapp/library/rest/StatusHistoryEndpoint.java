@@ -61,7 +61,7 @@ public class StatusHistoryEndpoint {
 
 	@GetMapping("/find/copy/{copy_id}") // return statushistory for copy with copy_id
 	public ResponseEntity<List<StatusHistory>> getStatusHistoryByCopy (@PathVariable("copy_id") Long copy_id) {
-		List<StatusHistory> statusUpdates = shService.findStatusHistoryCopy(); 
+		List<StatusHistory> statusUpdates = shService.findStatusHistoryCopy(copy_id); 
 		return new ResponseEntity<>(statusUpdates, HttpStatus.OK);
 	}	
 	
