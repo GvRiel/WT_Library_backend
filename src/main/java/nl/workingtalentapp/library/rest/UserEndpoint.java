@@ -36,15 +36,15 @@ public class UserEndpoint {
 		return this.userService.findAllUsers();
 	}
 	
-	@GetMapping("/find/{username}")
-	public ResponseEntity<User> getUserByUsername(@PathVariable String username){
+	@GetMapping("/find/username/{username}")
+	public ResponseEntity<User> getUserByUsername(@PathVariable("username") String username){
 		User user = this.userService.findByUsername(username);
         return new ResponseEntity<>(user, HttpStatus.OK);
 		//return userService.findAll();
 	}
 	
-	@GetMapping("/find/{user_id}/")
-	public ResponseEntity<User> getUserById(@PathVariable("user_id") int user_id){
+	@GetMapping("/find/{user_id}")
+	public ResponseEntity<User> getUserById(@PathVariable("user_id") long user_id){
 	User user = this.userService.findById(user_id);
         return new ResponseEntity<>(user, HttpStatus.OK);
 	}

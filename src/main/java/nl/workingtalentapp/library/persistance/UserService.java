@@ -2,6 +2,7 @@ package nl.workingtalentapp.library.persistance;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,18 +59,27 @@ public class UserService {
 	}
 
 	public User findById(long id) {
-		for(User user:users) {
-			if(user.getId() == id) {
-				return user;
-			}
+		Optional<User> optionalUser = userRepository.findById(id);
+		if (optionalUser.isPresent()) {
+			User user = optionalUser.get();
+			return user;
 		}
-		
-		return null;
+		else {
+			return null;
+		}
+//		for(User user:users) {
+//			System.out.println(id);
+//			if(user.getId() == id) {
+//				return user;
+//			}
+//		}
+//		
+//		return null;
 	}
 	
 	public User findByUsername(String username) {
 		for(User user:users) {
-			if(user.getUsername() == username) {
+			if(user.getUsername().equals(username)) {
 				return user;
 			}
 		}

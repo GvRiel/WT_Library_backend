@@ -3,6 +3,8 @@ package nl.workingtalentapp.library.domein;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -27,7 +29,7 @@ public class Boek implements Serializable {
 
 	@Column(nullable = false, updatable = false)
 	private String bookCode;
-
+	
 	public Boek() {}
 
 	public Boek(Long id, String title, String isbn, String thumbnailUrl, String authors, String categories, String status, int pageCount, int copies, int available, String bookCode) {
