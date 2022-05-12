@@ -1,5 +1,6 @@
-package nl.workingtalentapp.library.persistance;
+package nl.workingtalentapp.library.service;
 
+import nl.workingtalentapp.library.repository.BoekRepo;
 import nl.workingtalentapp.library.domein.Boek;
 import nl.workingtalentapp.library.exception.BoeknotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

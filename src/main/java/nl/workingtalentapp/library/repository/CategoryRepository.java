@@ -1,4 +1,4 @@
-package nl.workingtalentapp.library.persistance;
+package nl.workingtalentapp.library.repository;
 import nl.workingtalentapp.library.domein.Category;
 
 import org.springframework.data.repository.CrudRepository;

@@ -1,4 +1,4 @@
-package nl.workingtalentapp.library.persistance;
+package nl.workingtalentapp.library.repository;
 
 import nl.workingtalentapp.library.domein.StatusHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
