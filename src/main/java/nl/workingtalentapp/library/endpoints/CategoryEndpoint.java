@@ -1,4 +1,4 @@
-package nl.workingtalentapp.library.rest;
+package nl.workingtalentapp.library.endpoints;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import nl.workingtalentapp.library.domein.Category;
-import nl.workingtalentapp.library.persistance.CategoryService;
+import nl.workingtalentapp.library.service.CategoryService;
 
 @RestController
 public class CategoryEndpoint {

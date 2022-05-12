@@ -1,8 +1,7 @@
-package nl.workingtalentapp.library.rest;
+package nl.workingtalentapp.library.endpoints;
 
-import jdk.javadoc.doclet.Reporter;
 import nl.workingtalentapp.library.domein.Boek;
-import nl.workingtalentapp.library.persistance.BoekService;
+import nl.workingtalentapp.library.service.BoekService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package nl.workingtalentapp.library.rest;
+package nl.workingtalentapp.library.endpoints;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import nl.workingtalentapp.library.domein.User;
-import nl.workingtalentapp.library.persistance.UserService;
+import nl.workingtalentapp.library.service.UserService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
@@ -24,26 +24,13 @@ public class UserEndpoint {
 	 public UserEndpoint(UserService UserService) {
 	        this.userService = UserService;
 	    }
-	
-	
-	@GetMapping("/all/dummy")
-	public Iterable<User> ListUsersDummy(){
-		return this.userService.findStaticUsers();
-	}
-	
+
 	@GetMapping("/all")
 	public Iterable<User> ListUsers(){
 		return this.userService.findAllUsers();
 	}
-	
-	@GetMapping("/find/{username}")
-	public ResponseEntity<User> getUserByUsername(@PathVariable String username){
-		User user = this.userService.findByUsername(username);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-		//return userService.findAll();
-	}
-	
-	@GetMapping("/find/{user_id}/")
+
+	@GetMapping("/find/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable("user_id") int user_id){
 	User user = this.userService.findById(user_id);
         return new ResponseEntity<>(user, HttpStatus.OK);
@@ -72,15 +59,10 @@ public class UserEndpoint {
 	//Edit/Update a User
 	//PUT /u
 	  @PutMapping("/update")
-	    public ResponseEntity<User> updateBoek(@RequestBody User user) {
+	    public ResponseEntity<User> updateUser(@RequestBody User user) {
 	        User updateUser = userService.updateUser(user);
 	        return new ResponseEntity<>(updateUser, HttpStatus.OK);
 	  }
-	        
-	@PostMapping("/add")
-    public ResponseEntity<User> addUser(@RequestBody User user) {
-        User newUser = userService.addUser(user);
-        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
-	}
+
 	
 }

@@ -1,25 +1,21 @@
-package nl.workingtalentapp.library.persistance;
+package nl.workingtalentapp.library.service;
 
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
-import org.hibernate.ObjectNotFoundException;
+import nl.workingtalentapp.library.repository.ExemplaarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import nl.workingtalentapp.library.domein.Boek;
 import nl.workingtalentapp.library.domein.Exemplaar;
-import nl.workingtalentapp.library.domein.User;
-import nl.workingtalentapp.library.exception.BoeknotFoundException;
 
 @Service
 public class ExemplaarService {
 	@Autowired
-	ExemplaarRepository er;
+    ExemplaarRepository er;
 	private static List<Exemplaar> exemplaren = new ArrayList<>();
 	private List<Exemplaar> boekExemplaren = new ArrayList<>();
 	

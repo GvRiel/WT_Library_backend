@@ -1,7 +1,6 @@
-package nl.workingtalentapp.library.persistance;
+package nl.workingtalentapp.library.service;
 
-import java.util.List;
-
+import nl.workingtalentapp.library.repository.UserHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +9,7 @@ import nl.workingtalentapp.library.domein.UserHistory;
 @Service
 public class UserHistoryService {
 	@Autowired
-	UserHistoryRepository uhr;
+    UserHistoryRepository uhr;
 	
 	public void proberen() {
 		UserHistory uh = new UserHistory();

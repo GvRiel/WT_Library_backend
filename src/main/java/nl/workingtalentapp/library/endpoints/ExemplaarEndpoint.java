@@ -1,4 +1,4 @@
-package nl.workingtalentapp.library.rest;
+package nl.workingtalentapp.library.endpoints;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import nl.workingtalentapp.library.domein.Exemplaar;
-import nl.workingtalentapp.library.persistance.ExemplaarService;
+import nl.workingtalentapp.library.service.ExemplaarService;
 
 @RestController
 @RequestMapping("/exemplaar")

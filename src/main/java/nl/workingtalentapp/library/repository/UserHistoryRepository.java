@@ -1,4 +1,4 @@
-package nl.workingtalentapp.library.persistance;
+package nl.workingtalentapp.library.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
