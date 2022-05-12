@@ -1,8 +1,10 @@
 package nl.workingtalentapp.library.rest;
 
-import jdk.javadoc.doclet.Reporter;
 import nl.workingtalentapp.library.domein.Boek;
+import nl.workingtalentapp.library.domein.Exemplaar;
 import nl.workingtalentapp.library.persistance.BoekService;
+import nl.workingtalentapp.library.persistance.ExemplaarService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/boek")
 public class BoekResource {
+
+    @Autowired
+    ExemplaarService es;
 
     private final BoekService boekService;
 
@@ -35,6 +40,11 @@ public class BoekResource {
     @PostMapping("/add")
     public ResponseEntity<Boek> addBoek(@RequestBody Boek boek) {
         Boek newBoek = boekService.addBoek(boek);
+        int nCopies = newBoek.getCopies();
+        for (int i = 0; i < nCopies; i++) {
+            Exemplaar exemplaar = new Exemplaar("beschikbaar", true, newBoek );
+            Exemplaar newExemplaar = es.addExemplaar(exemplaar);
+        }
         return new ResponseEntity<>(newBoek, HttpStatus.CREATED);
     }
 
@@ -46,8 +56,11 @@ public class BoekResource {
     @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteBoek(@PathVariable("id") Long id) {
+        Boek boek = boekService.findBoek(id);
+        for (Exemplaar exemplaar:boek.getExemplaren()) {
+            es.deleteExemplaar(exemplaar.getId());
+        }
         boekService.deleteBoek(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
 }

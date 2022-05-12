@@ -1,20 +1,14 @@
 package nl.workingtalentapp.library.persistance;
 
 
+import nl.workingtalentapp.library.domein.Exemplaar;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
-import org.hibernate.ObjectNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import nl.workingtalentapp.library.domein.Boek;
-import nl.workingtalentapp.library.domein.Exemplaar;
-import nl.workingtalentapp.library.domein.User;
-import nl.workingtalentapp.library.exception.BoeknotFoundException;
 
 @Service
 public class ExemplaarService {
@@ -25,6 +19,7 @@ public class ExemplaarService {
 	
 	public Exemplaar addExemplaar(Exemplaar exemplaar) {
 		exemplaar.setCopyID(UUID.randomUUID().toString());
+		exemplaar.setBookID(exemplaar.getBoek().getBookCode());
 	    return er.save(exemplaar);
 	}
 	
@@ -65,6 +60,17 @@ public class ExemplaarService {
 		
 		return null;
     }
+
+	public List<Exemplaar> findExemplaarByBookId(Long id) {
+		List<Exemplaar> lijst = new ArrayList<>();
+		List<Exemplaar> exemplarenn = er.findAll();
+		for(Exemplaar exemplaar:exemplarenn) {
+			if(exemplaar.getBoek().getId() == id) {
+				lijst.add(exemplaar);
+			}
+		}
+		return lijst;
+	}
 
     public void deleteExemplaar(Long id) {
         er.deleteExemplaarById(id);

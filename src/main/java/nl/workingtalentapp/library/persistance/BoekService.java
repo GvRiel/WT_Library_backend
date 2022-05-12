@@ -19,6 +19,7 @@ public class BoekService {
 
     public Boek addBoek(Boek boek) {
         boek.setBookCode(UUID.randomUUID().toString());
+        boek.setAvailable(boek.getCopies());
         return boekRepo.save(boek);
     }
 
