@@ -1,15 +1,10 @@
 package nl.workingtalentapp.library.domein;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Exemplaar {
@@ -23,10 +18,33 @@ public class Exemplaar {
 	private String bookCode;
 	private String staat;
 	private boolean availability;
-	
+
+
+	@ManyToOne()
+	@JoinColumn(name = "boekId", referencedColumnName = "id")
+	private Boek boek;
+
+
+
 	@JsonIgnore
 	@OneToMany(mappedBy ="exemplaar")
 	private Set<StatusHistory> statusHistories= new HashSet<>();
+
+	public Exemplaar() {}
+
+
+	public Exemplaar(String staat, boolean availability, Boek boek) {
+		this.staat = staat;
+		this.availability = availability;
+		this.boek = boek;
+	}
+	public Boek getBoek() {
+		return boek;
+	}
+
+	public void setBoek(Boek boek) {
+		this.boek = boek;
+	}
 	
 	public long getId() {
 		return id;
