@@ -11,10 +11,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 import nl.workingtalentapp.library.repository.ExemplaarRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import nl.workingtalentapp.library.domein.Exemplaar;
 
 @Service
 public class ExemplaarService {

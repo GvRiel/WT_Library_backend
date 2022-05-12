@@ -2,7 +2,6 @@ package nl.workingtalentapp.library.endpoints;
 
 import nl.workingtalentapp.library.domein.Exemplaar;
 import nl.workingtalentapp.library.service.ExemplaarService;
-import nl.workingtalentapp.library.persistance.ExemplaarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
