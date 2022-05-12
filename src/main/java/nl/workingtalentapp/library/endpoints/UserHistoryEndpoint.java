@@ -1,6 +1,4 @@
-package nl.workingtalentapp.library.rest;
-
-import javax.persistence.GenerationType;
+package nl.workingtalentapp.library.endpoints;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import nl.workingtalentapp.library.domein.UserHistory;
-import nl.workingtalentapp.library.persistance.UserHistoryService;
+import nl.workingtalentapp.library.service.UserHistoryService;
 
 @RestController
 public class UserHistoryEndpoint {
