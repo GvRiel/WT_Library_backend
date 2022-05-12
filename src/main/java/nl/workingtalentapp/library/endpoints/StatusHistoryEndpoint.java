@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import nl.workingtalentapp.library.domein.Exemplaar;
 import nl.workingtalentapp.library.domein.StatusHistory;
 import nl.workingtalentapp.library.domein.User;
-import nl.workingtalentapp.library.persistance.ExemplaarService;
-import nl.workingtalentapp.library.persistance.StatusHistoryService;
-import nl.workingtalentapp.library.persistance.UserService;
+import nl.workingtalentapp.library.service.ExemplaarService;
+import nl.workingtalentapp.library.service.StatusHistoryService;
+import nl.workingtalentapp.library.service.UserService;
 
 import java.util.List;
 

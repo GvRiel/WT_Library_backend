@@ -4,6 +4,7 @@ package nl.workingtalentapp.library.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import nl.workingtalentapp.library.repository.ExemplaarRepository;
