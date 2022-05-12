@@ -1,9 +1,15 @@
 package nl.workingtalentapp.library.domein;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Exemplaar {
@@ -18,6 +24,9 @@ public class Exemplaar {
 	private String staat;
 	private boolean availability;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy ="exemplaar")
+	private Set<StatusHistory> statusHistories= new HashSet<>();
 	
 	public long getId() {
 		return id;
@@ -50,7 +59,9 @@ public class Exemplaar {
 		this.availability = availability;
 	}
 
-	
+	public Set<StatusHistory> getStatusHistories() {
+		return statusHistories;
+	}
 	
 	
 }

@@ -34,12 +34,21 @@ public class ExemplaarService {
     }
     
     public Exemplaar findExemplaarById(long id) {
-		for(Exemplaar exemplaar:exemplaren) {
-			if(exemplaar.getId() == id) {
-				return exemplaar;
-			}
+		Optional<Exemplaar> optionalExemplaar = er.findById(id);
+		if (optionalExemplaar.isPresent()) {
+			Exemplaar exemplaar = optionalExemplaar.get();
+			return exemplaar;
 		}
-		return null;
+		else {
+			return null;
+		}
+    	
+    	//		for(Exemplaar exemplaar:exemplaren) {
+//			if(exemplaar.getId() == id) {
+//				return exemplaar;
+//			}
+//		}
+//		return null;
 	}
     
     public List<Exemplaar> findExemplaarByBookCode(String bookCode) {

@@ -6,6 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -44,7 +45,10 @@ public class User {
 	private String functie;
 	private String photo;
 	private String linkedinURL;
-
+	
+	@JsonIgnore
+	@OneToMany(mappedBy ="user")
+	private Set<StatusHistory> statusHistories= new HashSet<>();
 	
 	public User() {}
 
@@ -122,7 +126,11 @@ public class User {
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	
+	public Set<StatusHistory> getStatusHistories() {
+		return statusHistories;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -144,6 +152,6 @@ public class User {
 			return false;
 		return true;
 	}
-	
+
 
 }
