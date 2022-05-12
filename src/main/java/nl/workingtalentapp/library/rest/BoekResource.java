@@ -50,7 +50,13 @@ public class BoekResource {
 
     @PutMapping("/update")
     public ResponseEntity<Boek> updateBoek(@RequestBody Boek boek) {
+        Boek oldbook = boekService.findBoek(boek.getId());
+        int hoeveelheid = boek.getCopies() - oldbook.getCopies();
         Boek updateBoek = boekService.updateBoek(boek);
+        for (int i = 0; i < hoeveelheid; i++) {
+            Exemplaar exemplaar = new Exemplaar("beschikbaar", true, updateBoek );
+            Exemplaar newExemplaar = es.addExemplaar(exemplaar);
+        }
         return new ResponseEntity<>(updateBoek, HttpStatus.OK);
     }
     @Transactional

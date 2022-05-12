@@ -65,7 +65,7 @@ public class ExemplaarService {
 		List<Exemplaar> lijst = new ArrayList<>();
 		List<Exemplaar> exemplarenn = er.findAll();
 		for(Exemplaar exemplaar:exemplarenn) {
-			if(exemplaar.getBoek().getId() == id) {
+			if(exemplaar.getBoek().getId().equals(id)) {
 				lijst.add(exemplaar);
 			}
 		}
@@ -75,5 +75,4 @@ public class ExemplaarService {
     public void deleteExemplaar(Long id) {
         er.deleteExemplaarById(id);
     }
-
 }
