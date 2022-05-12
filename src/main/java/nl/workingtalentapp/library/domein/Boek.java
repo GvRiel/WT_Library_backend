@@ -1,8 +1,8 @@
 package nl.workingtalentapp.library.domein;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +14,12 @@ public class Boek implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, updatable = false)
 	private Long id;
+
+
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "boek")
+	private Set<Exemplaar> exemplaren = new HashSet<>();
+
 	private String title;
 	private String isbn;
 	private String thumbnailUrl;
@@ -44,6 +50,14 @@ public class Boek implements Serializable {
 		this.copies = copies;
 		this.available = available;
 		this.bookCode = bookCode;
+	}
+
+	public Set<Exemplaar> getExemplaren() {
+		return exemplaren;
+	}
+
+	public void setExemplaren(Set<Exemplaar> exemplaren) {
+		this.exemplaren = exemplaren;
 	}
 
 	public Long getId() {

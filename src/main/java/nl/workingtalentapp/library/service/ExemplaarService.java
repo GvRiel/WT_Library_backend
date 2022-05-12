@@ -1,6 +1,9 @@
 package nl.workingtalentapp.library.service;
 
 
+import nl.workingtalentapp.library.domein.Exemplaar;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,7 @@ public class ExemplaarService {
 	
 	public Exemplaar addExemplaar(Exemplaar exemplaar) {
 		exemplaar.setCopyID(UUID.randomUUID().toString());
+		exemplaar.setBookID(exemplaar.getBoek().getBookCode());
 	    return er.save(exemplaar);
 	}
 	
@@ -63,8 +67,18 @@ public class ExemplaarService {
 		return null;
     }
 
+	public List<Exemplaar> findExemplaarByBookId(Long id) {
+		List<Exemplaar> lijst = new ArrayList<>();
+		List<Exemplaar> exemplarenn = er.findAll();
+		for(Exemplaar exemplaar:exemplarenn) {
+			if(exemplaar.getBoek().getId().equals(id)) {
+				lijst.add(exemplaar);
+			}
+		}
+		return lijst;
+	}
+
     public void deleteExemplaar(Long id) {
         er.deleteExemplaarById(id);
     }
-
 }
