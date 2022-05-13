@@ -44,7 +44,7 @@ public class StatusHistoryService {
         return null;
     }
 
-    public List<StatusHistory> findStatusHistoryCopy() {
+    public List<StatusHistory> findStatusHistoryCopy(Long copy_id) {
         // TODO Auto-generated method stub
         return null;
     }

@@ -39,14 +39,9 @@ public class StatusHistory implements Serializable{
 	
 	public StatusHistory() {}
 	
-	public StatusHistory(Long id, Boolean admin_modif, Boolean active, String shCode, LocalDateTime timestamp, String status) {
-		this.id = id;
-//		this.copy_id = copy_id;
-//		this.user_id = user_id;
+	public StatusHistory(Boolean admin_modif, Boolean active, String status) {
 		this.admin_modif = admin_modif;
 		this.active = active;
-		this.shCode = shCode;
-		this.timestamp = timestamp;
 		this.status = status;
 	}	
 	
