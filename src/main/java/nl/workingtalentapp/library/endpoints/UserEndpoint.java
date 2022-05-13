@@ -31,8 +31,8 @@ public class UserEndpoint {
 	}
 
 	@GetMapping("/find/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable("user_id") int user_id){
-	User user = this.userService.findById(user_id);
+	public ResponseEntity<User> getUserById(@PathVariable("id") Long id){
+	User user = this.userService.findById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 
