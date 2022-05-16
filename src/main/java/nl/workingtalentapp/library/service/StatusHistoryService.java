@@ -1,18 +1,16 @@
 package nl.workingtalentapp.library.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-
 import nl.workingtalentapp.library.domein.Exemplaar;
 import nl.workingtalentapp.library.domein.StatusHistory;
 import nl.workingtalentapp.library.domein.User;
 import nl.workingtalentapp.library.repository.StatusHistoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class StatusHistoryService {
@@ -38,6 +36,7 @@ public class StatusHistoryService {
         }
 //        return shRepo.findStatusHistoryById(id);
     }
+
 
     public List<StatusHistory> findStatusHistoryUser(Long user_id) {
 		List<StatusHistory> StatusHistories = shRepo.findAll();

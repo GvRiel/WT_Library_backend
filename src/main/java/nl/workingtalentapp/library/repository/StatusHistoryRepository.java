@@ -12,4 +12,6 @@ public interface StatusHistoryRepository extends JpaRepository<StatusHistory, Lo
 	
 	List<StatusHistory> findStatusHistoryByUserId(Long user_id);
 
+
+
 }
