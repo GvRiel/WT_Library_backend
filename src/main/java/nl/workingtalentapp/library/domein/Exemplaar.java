@@ -11,7 +11,6 @@ public class Exemplaar {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
 	private long id; //each defined item here is a column
 	
 	private String copyID;
@@ -44,6 +43,11 @@ public class Exemplaar {
 
 	public void setBoek(Boek boek) {
 		this.boek = boek;
+	}
+	
+	public Exemplaar(String staat, boolean availability) {
+		this.staat = staat;
+		this.availability = availability;
 	}
 	
 	public long getId() {

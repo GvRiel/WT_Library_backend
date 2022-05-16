@@ -40,11 +40,17 @@ public class StatusHistoryService {
     }
 
     public List<StatusHistory> findStatusHistoryUser(Long user_id) {
-        // TODO Auto-generated method stub
-        return null;
+		List<StatusHistory> StatusHistories = shRepo.findAll();
+        List<StatusHistory> returnStatusHistories = new ArrayList<>();
+		for(StatusHistory sh:StatusHistories) {
+			if(sh.getUser().getId().equals(user_id)) {
+				returnStatusHistories.add(sh);
+			}
+		}
+        return returnStatusHistories;
     }
 
-    public List<StatusHistory> findStatusHistoryCopy() {
+    public List<StatusHistory> findStatusHistoryCopy(Long copy_id) {
         // TODO Auto-generated method stub
         return null;
     }
