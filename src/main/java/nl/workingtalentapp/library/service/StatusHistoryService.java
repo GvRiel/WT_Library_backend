@@ -3,6 +3,7 @@ package nl.workingtalentapp.library.service;
 import nl.workingtalentapp.library.domein.Exemplaar;
 import nl.workingtalentapp.library.domein.StatusHistory;
 import nl.workingtalentapp.library.domein.User;
+import nl.workingtalentapp.library.domein.Boek;
 import nl.workingtalentapp.library.repository.StatusHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,13 +51,25 @@ public class StatusHistoryService {
     }
 
     public List<StatusHistory> findStatusHistoryCopy(Long copy_id) {
-        // TODO Auto-generated method stub
-        return null;
+		List<StatusHistory> StatusHistories = shRepo.findAll();
+        List<StatusHistory> returnStatusHistories = new ArrayList<>();
+		for(StatusHistory sh:StatusHistories) {
+			if(sh.getExemplaar().getId().equals(copy_id)) {
+				returnStatusHistories.add(sh);
+			}
+		}
+        return returnStatusHistories;
     }
 
     public List<StatusHistory> findStatusHistoryBook(Long book_id) {
-        // TODO Auto-generated method stub
-        return null;
+		List<StatusHistory> StatusHistories = shRepo.findAll();
+        List<StatusHistory> returnStatusHistories = new ArrayList<>();
+		for(StatusHistory sh:StatusHistories) {
+			if(sh.getExemplaar().getBoek().getId().equals(book_id)) {
+				returnStatusHistories.add(sh);
+			}
+		}
+        return returnStatusHistories;
     }
 
     public StatusHistory addStatusHistory(StatusHistory newStatusHistory, User user, Exemplaar exemplaar) {

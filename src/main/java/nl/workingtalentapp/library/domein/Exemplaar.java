@@ -11,7 +11,7 @@ public class Exemplaar {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id; //each defined item here is a column
+	private Long id; //each defined item here is a column
 	
 	private String copyID;
 	private String bookCode;
@@ -50,10 +50,10 @@ public class Exemplaar {
 		this.availability = availability;
 	}
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getCopyID() {
