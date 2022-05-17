@@ -53,13 +53,13 @@ public class StatusHistoryEndpoint {
 		return new ResponseEntity<>(statusUpdates, HttpStatus.OK);
 	}	
 
-	@GetMapping("/find/copy/{copy_id}") // return statushistory for copy with copy_id
-	public ResponseEntity<List<StatusHistory>> getStatusHistoryByCopy (@PathVariable("copy_id") Long copy_id) {
-		List<StatusHistory> statusUpdates = shService.findStatusHistoryCopy(copy_id); 
+	@GetMapping("/find/exemplaar/{exemplaar_id}") // return statushistory for exemplaar with exemplaar_id
+	public ResponseEntity<List<StatusHistory>> getStatusHistoryByCopy (@PathVariable("exemplaar_id") Long exemplaar_id) {
+		List<StatusHistory> statusUpdates = shService.findStatusHistoryCopy(exemplaar_id); 
 		return new ResponseEntity<>(statusUpdates, HttpStatus.OK);
 	}	
 	
-	@GetMapping("/find/book/{book_id}") // return statushistory for book with book_id
+	@GetMapping("/find/boek/{book_id}") // return statushistory for book with book_id
 	public ResponseEntity<List<StatusHistory>> getStatusHistoryByBook (@PathVariable("book_id") Long book_id) {
 		List<StatusHistory> statusUpdates = shService.findStatusHistoryBook(book_id); 
 		return new ResponseEntity<>(statusUpdates, HttpStatus.OK);

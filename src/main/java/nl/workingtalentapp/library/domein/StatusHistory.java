@@ -18,7 +18,7 @@ import org.hibernate.annotations.CreationTimestamp;
 public class StatusHistory implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Long id;
 		
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="exemplaar_id", referencedColumnName = "id")
@@ -61,11 +61,11 @@ public class StatusHistory implements Serializable{
 		this.user = user;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
