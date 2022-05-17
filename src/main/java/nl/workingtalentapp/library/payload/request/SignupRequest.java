@@ -21,7 +21,6 @@ public class SignupRequest {
   @NotBlank
   @Size(min = 6, max = 40)
   private String password;
-
   private String photo;
   private String functie;
   private String phoneNumber;
