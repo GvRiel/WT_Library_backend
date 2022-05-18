@@ -19,6 +19,8 @@ public class BoekResource {
 
     @Autowired
     ExemplaarService es;
+    
+    @Autowired
     StatusHistoryService shs;
 
     private final BoekService boekService;
@@ -45,20 +47,14 @@ public class BoekResource {
         int nCopies = newBoek.getCopies();
         for (int i = 0; i < nCopies; i++) {
             Exemplaar exemplaar = new Exemplaar("beschikbaar", true, newBoek );
-            Exemplaar newExemplaar = es.addExemplaar(exemplaar);
+            es.addExemplaar(exemplaar);
         }
         return new ResponseEntity<>(newBoek, HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
     public ResponseEntity<Boek> updateBoek(@RequestBody Boek boek) {
-        Boek oldbook = boekService.findBoek(boek.getId());
-        int hoeveelheid = boek.getCopies() - oldbook.getCopies();
-        Boek updateBoek = boekService.updateBoek(boek);
-        for (int i = 0; i < hoeveelheid; i++) {
-            Exemplaar exemplaar = new Exemplaar("beschikbaar", true, updateBoek );
-            Exemplaar newExemplaar = es.addExemplaar(exemplaar);
-        }
+        Boek updateBoek = boekService.updateBoek(boek);     
         return new ResponseEntity<>(updateBoek, HttpStatus.OK);
     }
     
