@@ -21,7 +21,6 @@ bin/**
 *.iws
 *.iml
 *.ipr
-*.properties
 *.DS_Store
 .DS_Store	
 
